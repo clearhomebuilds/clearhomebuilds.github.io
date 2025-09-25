@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - ClearHome Builds</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+  <section class="max-w-lg mx-auto my-12 p-6 bg-white rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Get Your Custom Building Pathway from ClearHome Builds</h2>
+    <p class="text-center text-gray-600 mb-8">Fill out the form below to start building with confidence. We’ll create a tailored schedule based on your U.S. project details.</p>
+    <form id="contact-form" class="space-y-4">
+      <div>
+        <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+        <input type="text" id="name" name="name" required class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-600">Email Address</label>
+        <input type="email" id="email" name="email" required class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+      <div>
+        <label for="project-type" class="block text-sm font-medium text-gray-700">Project Type</label>
+        <select id="project-type" name="project-type" required class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <option value="">Select one...</option>
+          <option value="new-home">New Home Build</option>
+          <option value="renovation">Renovation</option>
+          <option value="addition">Home Addition</option>
+        </select>
+      </div>
+      <div>
+        <label for="home-size" class="block text-sm font-medium text-gray-700">Home Size (sq ft)</label>
+        <input type="number" id="home-size" name="home-size" placeholder="e.g., 2000" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+      <div>
+        <label for="location" class="block text-sm font-medium text-gray-700">Project Location (City, State)</label>
+        <input type="text" id="location" name="location" placeholder="e.g., Austin, TX" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+      <div>
+        <label for="details" class="block text-sm font-medium text-gray-700">Project Details</label>
+        <textarea id="details" name="details" rows="4" placeholder="Tell us about your home design, timeline, or specific needs..." class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+      </div>
+      <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700 transition">Submit Request</button>
+    </form>
+  </section>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      const data = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        projectType: formData.get('project-type'),
+        homeSize: formData.get('home-size'),
+        location: formData.get('location'),
+        details: formData.get('details')
+      };
+      console.log('Form Submitted:', data);
+      alert('Thank you! ClearHome Builds will reach out soon to discuss your custom building pathway.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
